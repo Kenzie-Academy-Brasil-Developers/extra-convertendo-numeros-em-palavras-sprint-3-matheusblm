@@ -1,0 +1,17 @@
+body{
+	font-size: 14px;
+}
+
+span{
+	margin-bottom: 20px;
+	max-width: 300px;
+}
+
+div{
+	margin: 10px 0px;
+	border: 1px solid black;
+	word-wrap: break-word;
+}
+h1{
+	font-size: 18px;
+}
