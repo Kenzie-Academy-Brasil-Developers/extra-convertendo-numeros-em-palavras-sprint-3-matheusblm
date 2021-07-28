@@ -15,7 +15,7 @@ function oneToTwelve(){
 }
 function twelveToHundred(){
 	let resultado =[]
-	for(numero = 20; numero < 100; numero++){
+	for(numero = 21; numero < 100; numero++){
 	if(numero < 99){
 		let string = numero.toString()
 		let firstString= string[0]
