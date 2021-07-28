@@ -1,11 +1,15 @@
-const oneName = ["zero","um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", 		"nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", 				"dezesseis", "dezessete", "dezoito", "dezenove"];
+const oneName = ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"];
 const tenName = ["", "dez", "vinte", "trinta", "quarenta", "cinquenta",
                 "sessenta", "setenta", "oitenta", "noventa"];
 const hundName = ["", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos", "mil"]
 function oneToTwelve(){
 	let resultado = []
 	for(number = 0; number < 20; number++){
+	if(number < 19){
 	resultado.push(" " + oneName[number])
+	}else{
+	resultado.push(" vinte.")
+	}
 	}
 	return resultado
 }
@@ -18,18 +22,18 @@ function twelveToHundred(){
 		let secondString = string[1]
 		let firstNum = Number(firstString)
 		let secondNum = Number(secondString)
-		if(secondNum === 0){
-			let name = tenName[firstNum]
-			resultado.push(name)
-		}
+			if(secondNum === 0){
+				let name = " " + tenName[firstNum]
+				resultado.push(name)
+			}
+			else{
+				let name = " " + tenName[firstNum] + " e " + oneName[secondNum-1]
+				resultado.push(name)
+			}
+	}
 		else{
-		let name = " " + tenName[firstNum] + " e " + oneName[secondNum]
-		resultado.push(name)
+			resultado.push(" " +"cem")
 		}
-	}
-	else{
-		resultado.push(" " +"cem")
-	}
 }
 return resultado
 }
@@ -56,13 +60,16 @@ function hundredToThousand(){
 			resultado.push(name)
 		}	
 		if(fourtNumber < 20 && fourtNumber > 0){
-			let name = " " + hundName[firstNum] + " e " + oneName [fourtNumber]
+			let name = " " + hundName[firstNum] + " e " + oneName [fourtNumber-1]
 			resultado.push(name)
 		}
-
+		if(fourtNumber === 20){
+			let name = " " + hundName[firstNum] + " e " + tenName[secondNum]
+			resultado.push(name)
+		}
 		if(fourtNumber > 20){
 			if(secondNum === 0){
-				let name = " " + hundName[firstNum] + " e " + oneName[thirdNum]
+				let name = " " + hundName[firstNum] + " e " + oneName[thirdNum -1]
 				resultado.push(name)
 			}
 			if(thirdNum === 0){
@@ -70,7 +77,7 @@ function hundredToThousand(){
 				resultado.push(name)
 			}
 			else{
-				let name = " " + hundName[firstNum] + " e " + tenName[secondString] + " e " + oneName[thirdNum]
+				let name = " " + hundName[firstNum] + " e " + tenName[secondString] + " e " + oneName[thirdNum-1]
 				resultado.push(name)
 			}
 		}
